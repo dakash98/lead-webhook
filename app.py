@@ -20,5 +20,6 @@ def get_webhook():
     if request.method == 'GET':
         return request.args.get('hub.challenge'), 200
     else:
+        print("json is : ", request.json)
         return request.json
     
