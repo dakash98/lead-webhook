@@ -15,7 +15,10 @@ def post_webhook():
         abort(400)
 
 
-@app.route('/webhook-get', methods=['GET'])
+@app.route('/webhook-get', methods=['GET', 'POST'])
 def get_webhook():
+    if request.method == 'GET':
         return request.args.get('hub.challenge'), 200
+    else:
+        return request.json
     
