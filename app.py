@@ -17,5 +17,5 @@ def post_webhook():
 
 @app.route('/webhook-get', methods=['GET'])
 def get_webhook():
-        return {"Data": "Webhook testing"}
+        return request.args.get('hub.challenge'), 200
     
